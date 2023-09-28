@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Html Test</title>
+    <style>
+        #container {
+            position: relative;
+        }
+
+        #naoButton {
+            position: absolute;
+        }
+
+        #primeiroBotao {
+            margin-right: 15px;
+        }
+
+        #resposta1 {
+            display: none;
+        }
+
+        #resposta2 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="2px">
+        <tr>
+            <th>Você é gay ou héterossexual?</th>
+        </tr>
+    </table>
+    <br>
+    <div id="container">
+        <label align="center">
+            <button align="center" id="primeiroBotao" onclick="mostrarResposta1()">
+                Eu sou gay.
+            </button>
+            <p id="resposta1">Todo mundo sabe.</p>
+        </label>
+        <button id="naoButton" onmouseover="moverBotao()" onclick="mostrarResposta2()">
+            Eu sou hétero.
+        </button>
+        <p id="resposta2">Droga, você ganhou de mim.</p>
+    </div>
+
+    <script>
+        function moverBotao() {
+            var naoButton = document.getElementById('naoButton');
+            var container = document.getElementById('container');
+
+            // Gere posições aleatórias para a margem esquerda e superior
+            var randomLeft = Math.random() * (container.clientWidth - naoButton.clientWidth);
+            var randomTop = Math.random() * (container.clientHeight - naoButton.clientHeight);
+
+            naoButton.style.left = randomLeft + 'px';
+            naoButton.style.top = randomTop + 'px';
+        }
+
+        function mostrarResposta1() {
+            var resposta1 = document.getElementById('resposta1');
+            resposta1.style.display = 'block';
+
+            // Reinicia após 2 segundos (2000 milissegundos)
+            setTimeout(function () {
+                resposta1.style.display = 'none';
+            }, 2000);
+        }
+
+        function mostrarResposta2() {
+            var resposta2 = document.getElementById('resposta2');
+            resposta2.style.display = 'block';
+
+            // Reinicia após 2 segundos (2000 milissegundos)
+            setTimeout(function () {
+                resposta2.style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
